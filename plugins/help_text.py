@@ -47,9 +47,9 @@ async def help_user(bot, update):
                return
         except UserNotParticipant:
             await update.reply_text(
-                text="**Debido al enorme tráfico, solo los miembros del canal pueden usar este bot, lo que significa que debe unirse al canal mencionado a continuación antes de usarme! **",
+                text="**🚫Debido al enorme tráfico, solo los miembros del canal pueden usar este bot, lo que significa que debe unirse al canal mencionado a continuación antes de usarme!🚫 **",
                 reply_markup=InlineKeyboardMarkup([
-                    [ InlineKeyboardButton(text="Unete a mi Canal de Noticias", url=f"https://t.me/{update_channel}")]
+                    [ InlineKeyboardButton(text="📡Unete a mi Canal de Noticias", url=f"https://t.me/{update_channel}")]
               ])
             )
             return
@@ -77,20 +77,20 @@ async def help_user(bot, update):
 @Mai_bOTs.on_message(pyrogram.filters.command(["start"]))
 async def start_me(bot, update):
     if update.from_user.id in Config.BANNED_USERS:
-        await update.reply_text("Estas Baneado")
+        await update.reply_text("❌Estas Baneado❌")
         return
     update_channel = Config.UPDATE_CHANNEL
     if update_channel:
         try:
             user = await bot.get_chat_member(update_channel, update.chat.id)
             if user.status == "kicked":
-               await update.reply_text(" Lo siento ,Lo siento, me ha estado inundando, por lo que mi propietario lo eliminó de usarme si cree que es un error Contacta a: @Wachu985")
+               await update.reply_text(" ❌Lo siento, me ha estado inundando, por lo que mi propietario lo eliminó de usarme si cree que es un error.❌ Contacta a: @Wachu985")
                return
         except UserNotParticipant:
             await update.reply_text(
-                text="**Debido al enorme tráfico, solo los miembros del canal pueden usar este bot, lo que significa que debe unirse al canal mencionado a continuación antes de usarme! **",
+                text="**❌Debido al enorme tráfico, solo los miembros del canal pueden usar este bot, lo que significa que debe unirse al canal mencionado a continuación antes de usarme!❌ **",
                 reply_markup=InlineKeyboardMarkup([
-                    [ InlineKeyboardButton(text="Unete a mi Canal de Noticias", url=f"https://t.me/{update_channel}")]
+                    [ InlineKeyboardButton(text="📡Unete a mi Canal de Noticias", url=f"https://t.me/{update_channel}")]
               ])
             )
             return
@@ -99,15 +99,15 @@ async def start_me(bot, update):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                        InlineKeyboardButton("Ayuda", callback_data = "ghelp")
+                        InlineKeyboardButton("🔍Ayuda", callback_data = "ghelp")
                 ],
                 [
-                    InlineKeyboardButton('Canal de Asistencia', url='https://t.me/IDMDescarga'),
-                    InlineKeyboardButton('Asistencia', url='https://t.me/Wachu985')
+                    InlineKeyboardButton('⚙️Canal de Asistencia', url='https://t.me/IDMDescarga'),
+                    InlineKeyboardButton('⚙️Asistencia', url='https://t.me/Wachu985')
                 ],
                 [
-                    InlineKeyboardButton('Otros Bots', url='https://t.me/FileToLinksWachu_bot'),
-                    InlineKeyboardButton('Codigo', url='https://github.com/No-OnE-Kn0wS-Me/FileRenameBot')
+                    InlineKeyboardButton('🕹Otros Bots', url='https://t.me/FileToLinksWachu_bot'),
+                    InlineKeyboardButton('💻Codigo', url='https://github.com/No-OnE-Kn0wS-Me/FileRenameBot')
                 ]
             ]
         ),
@@ -125,7 +125,7 @@ async def cb_handler(client: Mai_bOTs , query: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('Atrás', callback_data = "ghelp"),
+                    InlineKeyboardButton('♻️Atrás', callback_data = "ghelp"),
                     InlineKeyboardButton("🔒 Cerrar", callback_data = "close")
                 ]
             ]
@@ -138,7 +138,7 @@ async def cb_handler(client: Mai_bOTs , query: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('Atrás', callback_data = "ghelp"),
+                    InlineKeyboardButton('♻️Atrás', callback_data = "ghelp"),
                     InlineKeyboardButton("🔒 Cerrar", callback_data = "close")
                 ]
             ]
@@ -151,11 +151,11 @@ async def cb_handler(client: Mai_bOTs , query: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('Mostrar el Subtitulo Actual', callback_data = "shw_caption"),
-                    InlineKeyboardButton("Borrar Subtitulo", callback_data = "d_caption")
+                    InlineKeyboardButton('📄Mostrar el Subtitulo Actual', callback_data = "shw_caption"),
+                    InlineKeyboardButton("🚫Borrar Subtitulo", callback_data = "d_caption")
                 ],
                 [
-                    InlineKeyboardButton('Atrás', callback_data = "ghelp"),
+                    InlineKeyboardButton('♻️Atrás', callback_data = "ghelp"),
                     InlineKeyboardButton('🔒 Cerrar', callback_data = "close")
                 ]
             ]
@@ -168,7 +168,7 @@ async def cb_handler(client: Mai_bOTs , query: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('Atrás', callback_data = "ghelp"),
+                    InlineKeyboardButton('♻️Atrás', callback_data = "ghelp"),
                     InlineKeyboardButton("🔒 Cerrar", callback_data = "close")
                 ]
             ]
@@ -178,7 +178,7 @@ async def cb_handler(client: Mai_bOTs , query: CallbackQuery):
         await query.message.delete()
         try:
             await query.message.reply_text(
-                text = "<b>Proceso Cancelado</b>"
+                text = "<b>🚫Proceso Cancelado🚫</b>"
      )
         except:
             pass 
@@ -208,15 +208,15 @@ async def cb_handler(client: Mai_bOTs , query: CallbackQuery):
                 caption = await get_caption(query.from_user.id)
                 c_text = caption.caption
              except:
-                c_text = "Lo sentimos, pero aún no ha agregado ningún subtitulo, configure su subtitulo a través del comando /scaption" 
+                c_text = "🚫Lo sentimos, pero aún no ha agregado ningún subtitulo, configure su subtitulo a través del comando /scaption🚫" 
              await query.message.edit(
-                  text=f"<b>Su subtitulo Personalizado:</b> \n\n{c_text} ",
+                  text=f"<b>✅Su subtitulo Personalizado:</b> \n\n{c_text} ",
                   parse_mode="html", 
                   disable_web_page_preview=True, 
                   reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('Atrás', callback_data = "ccaption"),
+                    InlineKeyboardButton('♻️Atrás', callback_data = "ccaption"),
                     InlineKeyboardButton("🔒 Cerrar", callback_data = "close")
                 ]
             ]
@@ -229,7 +229,7 @@ async def cb_handler(client: Mai_bOTs , query: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('Atrás', callback_data = "ghelp"),
+                    InlineKeyboardButton('♻️Atrás', callback_data = "ghelp"),
                     InlineKeyboardButton("🔒 Cerrar", callback_data = "close")
                 ]
             ]
@@ -241,12 +241,12 @@ async def cb_handler(client: Mai_bOTs , query: CallbackQuery):
         except:
             pass
         await query.message.edit_text(
-            text="<b>Subtitulo borrado Correctamente</b>",
+            text="<b>✅Subtitulo borrado Correctamente</b>",
             disable_web_page_preview = True,
             reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('Atrás', callback_data = "ccaption"),
+                    InlineKeyboardButton('♻️Atrás', callback_data = "ccaption"),
                     InlineKeyboardButton("🔒 Cerrar", callback_data = "close")
                 ]
             ]
