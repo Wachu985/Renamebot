@@ -40,15 +40,15 @@ from database.db import *
 async def set_caption(bot, update):
     if len(update.command) == 1:
         await update.reply_text(
-            "Custom Caption \n\n you can use this command to set your own caption  \n\n Usage : /scaption Your caption text \n\n note : For current file name use : <code>{filename}</code>", 
+            "Subtitulo Personalizado \n\n Puedes usar este comando para establecer su propio subtitulo  \n\n Use : /scaption Su texto de Suptitulo \n\n Nota : Para el uso del nombre de archivo actual : <code>{filename}</code>", 
             quote = True, 
             reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('Show Current Caption', callback_data = "shw_caption")      
+                    InlineKeyboardButton('Mostrar subtitulo actual', callback_data = "shw_caption")      
                 ],
                 [
-                    InlineKeyboardButton('Delete Caption', callback_data = "d_caption")
+                    InlineKeyboardButton('Borrar Subtitulo', callback_data = "d_caption")
                 ]
             ]
         ) 
@@ -56,7 +56,7 @@ async def set_caption(bot, update):
     else:
         command, CSTM_FIL_CPTN = update.text.split(' ', 1)
         await update_cap(update.from_user.id, CSTM_FIL_CPTN)
-        await update.reply_text(f"**--Your Caption--:**\n\n{CSTM_FIL_CPTN}", quote=True)
+        await update.reply_text(f"**--Tu Subtitulo--:**\n\n{CSTM_FIL_CPTN}", quote=True)
 
 
 @Mai_bOTs.on_message(pyrogram.filters.command(["rename"]))
@@ -66,13 +66,13 @@ async def rename_doc(bot, update):
         try:
             user = await bot.get_chat_member(update_channel, update.chat.id)
             if user.status == "kicked":
-               await update.reply_text(" Sorry,You've Been Banned From Using Meh!")
+               await update.reply_text(" Lo siento,Estas baneado no puedes usarme!")
                return
         except UserNotParticipant:
             await update.reply_text(
-                text="**Due To The Huge Traffic Only Channel Members Can Use This Bot Means You Need To Join The Below Mentioned Channel Before Using Me! **",
+                text="**Debido al enorme tráfico, solo los miembros del canal pueden usar este bot, lo que significa que debe unirse al canal mencionado a continuación antes de usarme.!! **",
                 reply_markup=InlineKeyboardMarkup([
-                    [ InlineKeyboardButton(text="Join My Updates Channel", url=f"https://t.me/{update_channel}")]
+                    [ InlineKeyboardButton(text="Unete a mi canal de Noticias", url=f"https://t.me/{update_channel}")]
               ])
             )
             return
@@ -163,7 +163,7 @@ async def rename_doc(bot, update):
                 caption=f"{caption_text2}",
                 parse_mode = "html",
                 reply_markup=InlineKeyboardMarkup([
-                    [ InlineKeyboardButton(text="𝚂ᴜᴘᴘᴏʀᴛ 𝙲ʜᴀɴɴᴇʟ", url=f"https://t.me/Mai_bOTs")]
+                    [ InlineKeyboardButton(text="Canal de Soporte", url=f"https://t.me/IDMDescarga")]
               ]), 
                 reply_to_message_id=update.reply_to_message.message_id,
                 progress=progress_for_pyrogram,
