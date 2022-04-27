@@ -111,7 +111,6 @@ async def start_me(bot, update):
                 ]
             ]
         ),
-        reply_to_message_id=update.message_id
     )
             return 
 
